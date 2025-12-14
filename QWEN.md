@@ -209,5 +209,3 @@ Wait for consent; never auto-create ADRs. Group related decisions (stacks, authe
 ## Code Standards
 See `.specify/memory/constitution.md` for code quality, testing, performance, security, and architecture principles.
 
-## Additional Notes
-This repository has been successfully transferred to the new book1 repository.
