@@ -1,55 +1,61 @@
-# [PROJECT_NAME] Constitution
-<!-- Example: Spec Constitution, TaskFlow Constitution, etc. -->
+<!--
+Sync Impact Report:
+Version change: n/a → 1.0.0
+Added sections: All principles and governance sections
+Removed sections: None
+Templates requiring updates: ⚠ pending - .specify/templates/plan-template.md, .specify/templates/spec-template.md, .specify/templates/tasks-template.md
+Follow-up TODOs: None
+ -->
+
+# Spec-Driven Book Creation Constitution
 
 ## Core Principles
 
-### [PRINCIPLE_1_NAME]
-<!-- Example: I. Library-First -->
-[PRINCIPLE_1_DESCRIPTION]
-<!-- Example: Every feature starts as a standalone library; Libraries must be self-contained, independently testable, documented; Clear purpose required - no organizational-only libraries -->
+### I. Clarity and Accessibility
+All content MUST be written in clear, accessible language appropriate for beginner to intermediate learners. Technical concepts SHOULD be explained using analogies, examples, and visual aids when beneficial. Content MUST avoid unnecessary jargon and explain terms upon first use.
 
-### [PRINCIPLE_2_NAME]
-<!-- Example: II. CLI Interface -->
-[PRINCIPLE_2_DESCRIPTION]
-<!-- Example: Every library exposes functionality via CLI; Text in/out protocol: stdin/args → stdout, errors → stderr; Support JSON + human-readable formats -->
+### II. Progressive Learning Structure
+Content MUST follow a logical progression from basic to advanced concepts. Each chapter SHOULD build upon previous knowledge while clearly indicating prerequisites. Learning pathways MUST be designed to accommodate different learning speeds and styles.
 
-### [PRINCIPLE_3_NAME]
-<!-- Example: III. Test-First (NON-NEGOTIABLE) -->
-[PRINCIPLE_3_DESCRIPTION]
-<!-- Example: TDD mandatory: Tests written → User approved → Tests fail → Then implement; Red-Green-Refactor cycle strictly enforced -->
+### III. Factual and Technical Accuracy
+All technical claims, code samples, and statements MUST be verified for accuracy before publication. Sources MUST be cited when referencing external information or research. Content SHOULD undergo peer review by subject matter experts when dealing with complex topics.
 
-### [PRINCIPLE_4_NAME]
-<!-- Example: IV. Integration Testing -->
-[PRINCIPLE_4_DESCRIPTION]
-<!-- Example: Focus areas requiring integration tests: New library contract tests, Contract changes, Inter-service communication, Shared schemas -->
+### IV. Executable and Reproducible Examples
+All code examples and technical instructions MUST be tested to ensure reproducibility. Examples SHOULD be kept minimal while demonstrating the core concept. Code snippets MUST include appropriate context and explanations for successful execution.
 
-### [PRINCIPLE_5_NAME]
-<!-- Example: V. Observability, VI. Versioning & Breaking Changes, VII. Simplicity -->
-[PRINCIPLE_5_DESCRIPTION]
-<!-- Example: Text I/O ensures debuggability; Structured logging required; Or: MAJOR.MINOR.BUILD format; Or: Start simple, YAGNI principles -->
+### V. Spec-Driven Development Discipline
+All content creation MUST begin with a clear specification document outlining learning objectives, target audience, and content structure. Specifications SHOULD be validated by stakeholders before proceeding to planning phase. Content plans MUST align with the original specification and document any deviations.
 
-### [PRINCIPLE_6_NAME]
+### VI. AI Behavior Constraints
+AI-generated content MUST be grounded in verified sources and not contain hallucinations. All AI outputs MUST be reviewed for accuracy and appropriateness before acceptance. AI tools SHOULD only be used to assist human creativity, not replace it entirely.
 
+### VII. Docusaurus Documentation Standards
+All content MUST comply with Docusaurus documentation standards and best practices. Navigation structure SHOULD follow intuitive information architecture principles. Content MUST be optimized for both desktop and mobile viewing experiences.
 
-[PRINCIPLE__DESCRIPTION]
+### VIII. Version Control and Change Management
+All content changes MUST be tracked using Git version control. Significant changes SHOULD be documented in changelog files. Multiple versions of content MAY be maintained when supporting different technology versions or user needs.
 
-## [SECTION_2_NAME]
-<!-- Example: Additional Constraints, Security Requirements, Performance Standards, etc. -->
+## Content Integrity Requirements
 
-[SECTION_2_CONTENT]
-<!-- Example: Technology stack requirements, compliance standards, deployment policies, etc. -->
+### Ethical and Authoritative Sourcing
+All content MUST be ethically sourced, with proper attribution to original authors. Third-party materials MUST comply with applicable licensing requirements. Content SHOULD prioritize authoritative, peer-reviewed sources when available.
 
-## [SECTION_3_NAME]
-<!-- Example: Development Workflow, Review Process, Quality Gates, etc. -->
+### Consistency Across Specs, Plans, and Tasks
+Specifications, content plans, and implementation tasks MUST maintain consistency with core principles. Deviations from established patterns MUST be documented and justified. Cross-references between documents SHOULD maintain integrity and accuracy.
 
-[SECTION_3_CONTENT]
-<!-- Example: Code review requirements, testing gates, deployment approval process, etc. -->
+## Development Workflow
+
+### Specification Phase Requirements
+All chapters and major sections MUST begin with a comprehensive specification document. Specifications SHOULD include learning objectives, target audience, estimated reading time, and prerequisite knowledge. Content specifications MUST be reviewed and approved before proceeding to the planning phase.
+
+### Planning and Task Creation
+Content plans MUST break down specifications into discrete, trackable tasks. Task definitions SHOULD include acceptance criteria, complexity estimates, and dependencies. All tasks MUST reference the relevant specification items they implement.
+
+### Quality Assurance Gates
+Content MUST pass technical accuracy reviews by subject matter experts. All code examples MUST be tested in clean environments to verify reproducibility. Content SHOULD undergo editorial review for clarity, grammar, and accessibility before final approval.
 
 ## Governance
-<!-- Example: Constitution supersedes all other practices; Amendments require documentation, approval, migration plan -->
 
-[GOVERNANCE_RULES]
-<!-- Example: All PRs/reviews must verify compliance; Complexity must be justified; Use [GUIDANCE_FILE] for runtime development guidance -->
+This constitution establishes the governing principles for all content creation, specification, planning, and implementation activities. Any changes to this constitution MUST be documented with appropriate versioning and approval processes. All project participants MUST comply with these principles throughout the content creation lifecycle. Deviations from these principles MUST be explicitly documented, justified, and approved by the editorial board. Content development workflows MUST include checks for constitutional compliance at each major milestone (spec → plan → task → implementation → review).
 
-**Version**: [CONSTITUTION_VERSION] | **Ratified**: [RATIFICATION_DATE] | **Last Amended**: [LAST_AMENDED_DATE]
-<!-- Example: Version: 2.1.1 | Ratified: 2025-06-13 | Last Amended: 2025-07-16 -->
+**Version**: 1.0.0 | **Ratified**: 2025-01-14 | **Last Amended**: 2025-01-14
