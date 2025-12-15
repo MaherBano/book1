@@ -1,0 +1,261 @@
+# API Contracts: Docusaurus Book Project
+
+## Overview
+
+While the primary Docusaurus book is served as static content, this defines potential API contracts for enhanced interactivity, user progress tracking, and content management features that might be integrated later.
+
+## Base URL
+
+```
+https://[your-book-name].github.io/api/v1
+```
+
+## Authentication
+
+Most endpoints are publicly accessible as the content is meant to be open for learning. Some personalized features may require simple authentication headers, but most learning content should remain accessible without authentication to promote open education.
+
+## Endpoints
+
+### 1. Book Content Endpoints
+
+#### GET /book/chapters
+Retrieve all chapters with metadata
+
+Request:
+```
+GET /api/v1/book/chapters
+Headers: 
+  Accept: application/json
+```
+
+Response:
+```
+{
+  "chapters": [
+    {
+      "id": "chapter-1",
+      "title": "Introduction to AI Concepts",
+      "description": "Basic AI principles and terminology",
+      "lessonCount": 4,
+      "estimatedTime": "60 min",
+      "prerequisites": [],
+      "learningObjectives": [
+        "Understand AI fundamentals",
+        "Identify common AI techniques"
+      ]
+    }
+  ],
+  "totalChapters": 3
+}
+```
+
+#### GET /book/chapters/{chapterId}
+Retrieve specific chapter information
+
+Request:
+```
+GET /api/v1/book/chapters/chapter-1
+Headers: 
+  Accept: application/json
+```
+
+Response:
+```
+{
+  "chapter": {
+    "id": "chapter-1",
+    "title": "Introduction to AI Concepts",
+    "description": "Basic AI principles and terminology",
+    "lessons": [
+      {
+        "id": "lesson-1",
+        "title": "What is Artificial Intelligence?",
+        "estimatedTime": "15 min",
+        "prerequisites": []
+      },
+      // ... more lessons
+    ],
+    "learningObjectives": [
+      "Understand AI fundamentals",
+      "Identify common AI techniques"
+    ]
+  }
+}
+```
+
+#### GET /book/chapters/{chapterId}/lessons/{lessonId}
+Retrieve specific lesson content
+
+Request:
+```
+GET /api/v1/book/chapters/chapter-1/lessons/lesson-1
+Headers: 
+  Accept: application/json
+```
+
+Response:
+```
+{
+  "lesson": {
+    "id": "lesson-1",
+    "chapterId": "chapter-1",
+    "title": "What is Artificial Intelligence?",
+    "content": "# What is AI?\n\nArtificial Intelligence (AI) refers to...",
+    "sections": [
+      {
+        "id": "section-1",
+        "title": "Definition",
+        "type": "main",
+        "content": "..."
+      }
+    ],
+    "codeExamples": [
+      {
+        "id": "code-1",
+        "language": "python",
+        "code": "def hello_ai():\n    print('Hello, AI!')",
+        "description": "Simple function to print greeting"
+      }
+    ],
+    "estimatedTime": "15 min",
+    "learningObjectives": [
+      "Define artificial intelligence",
+      "Recognize applications of AI"
+    ]
+  }
+}
+```
+
+### 2. Progress Tracking Endpoints (Authentication Required)
+
+#### POST /progress/{userId}/bookmark
+Save a bookmark for a specific section
+
+Request:
+```
+POST /api/v1/progress/user123/bookmark
+Headers: 
+  Content-Type: application/json
+  Authorization: Bearer <token>
+  
+Body:
+{
+  "sectionId": "section-1",
+  "note": "Found this part challenging"
+}
+```
+
+Response:
+```
+{
+  "bookmark": {
+    "id": "bookmark-123",
+    "userId": "user123",
+    "sectionId": "section-1",
+    "note": "Found this part challenging",
+    "createdAt": "2025-01-15T10:30:00Z"
+  }
+}
+```
+
+#### PUT /progress/{userId}/complete
+Mark lesson as completed
+
+Request:
+```
+PUT /api/v1/progress/user123/complete
+Headers: 
+  Content-Type: application/json
+  Authorization: Bearer <token>
+  
+Body:
+{
+  "lessonId": "lesson-1",
+  "completedAt": "2025-01-15T11:00:00Z",
+  "understandingScore": 8
+}
+```
+
+Response:
+```
+{
+  "success": true,
+  "progress": {
+    "userId": "user123",
+    "lessonId": "lesson-1",
+    "completed": true,
+    "understandingScore": 8,
+    "completionPercentage": 8.33
+  }
+}
+```
+
+### 3. Search Endpoint
+
+#### GET /search
+Search across book content
+
+Request:
+```
+GET /api/v1/search?q=machine+learning&page=1&limit=10
+Headers: 
+  Accept: application/json
+```
+
+Response:
+```
+{
+  "results": [
+    {
+      "id": "section-45",
+      "title": "Machine Learning Basics",
+      "contentPreview": "Machine learning is a subset of AI that...",
+      "location": "/chapter-2/lesson-1#ml-basics",
+      "relevance": 0.95
+    }
+  ],
+  "pagination": {
+    "page": 1,
+    "limit": 10,
+    "totalResults": 1,
+    "totalPages": 1
+  }
+}
+```
+
+## Error Responses
+
+Common error responses across all endpoints:
+
+```
+{
+  "error": {
+    "code": "RESOURCE_NOT_FOUND",
+    "message": "The requested resource was not found",
+    "details": "Chapter with ID 'chapter-999' does not exist"
+  }
+}
+
+{
+  "error": {
+    "code": "VALIDATION_ERROR",
+    "message": "Request validation failed",
+    "details": [
+      {
+        "field": "lessonId",
+        "issue": "Lesson ID is required"
+      }
+    ]
+  }
+}
+```
+
+## Status Codes
+
+- `200 OK` - Request successful
+- `201 Created` - Resource created successfully
+- `400 Bad Request` - Invalid request parameters
+- `401 Unauthorized` - Authentication required
+- `404 Not Found` - Resource does not exist
+- `422 Unprocessable Entity` - Validation errors
+- `500 Internal Server Error` - Server error

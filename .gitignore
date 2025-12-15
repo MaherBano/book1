@@ -1,0 +1,63 @@
+# Dependencies
+node_modules/
+
+# Docusaurus
+.build/
+dist/
+.cache/
+
+# Production build
+build/
+
+# Environment variables
+.env*
+!.env.example
+
+# Logs
+*.log
+
+# Runtime data
+pids/
+*.pid
+*.seed
+*.pid.lock
+
+# Coverage directory used by tools like istanbul
+coverage/
+*.lcov
+
+# Temporary folders
+tmp/
+temp/
+
+# Output of web compilers
+.css.map
+.js.map
+.jsx.map
+.ts.map
+.tsx.map
+
+# OS generated files
+.DS_Store
+.DS_Store?
+._*
+.Spotlight-V100
+.Trashes
+ehthumbs.db
+Thumbs.db
+
+# Editor-specific files
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Secrets
+secrets/
+*.key
+*.secret
+
+# Local configuration
+.local/
+config/local.json
