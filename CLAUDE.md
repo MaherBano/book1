@@ -212,6 +212,7 @@ See `.specify/memory/constitution.md` for code quality, testing, performance, se
 ## Active Technologies
 - Python 3.11+ (required for uv package manager compatibility) + uv (virtual environment manager), requests (web scraping), beautifulsoup4 (HTML parsing), cohere (embedding generation), qdrant-client (vector storage), lxml (HTML processing) (002-website-deployment-rag)
 - Qdrant Cloud (vector database for embeddings with metadata) (002-website-deployment-rag)
+- Python 3.11+ (required for uv package manager compatibility) + qdrant-client (vector database interaction), cohere (embedding compatibility), python-dotenv (configuration management), pytest (testing framework) (001-retrieval-validation)
 
 ## Recent Changes
 - 002-website-deployment-rag: Added Python 3.11+ (required for uv package manager compatibility) + uv (virtual environment manager), requests (web scraping), beautifulsoup4 (HTML parsing), cohere (embedding generation), qdrant-client (vector storage), lxml (HTML processing)
