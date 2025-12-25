@@ -1,61 +1,88 @@
-<!--
-Sync Impact Report:
-Version change: n/a → 1.0.0
-Added sections: All principles and governance sections
-Removed sections: None
-Templates requiring updates: ⚠ pending - .specify/templates/plan-template.md, .specify/templates/spec-template.md, .specify/templates/tasks-template.md
+<!-- SYNC IMPACT REPORT
+Version change: N/A -> 1.0.0
+Modified principles: N/A (new constitution)
+Added sections: All principles and sections specific to AI/Spec-Driven Book with Embedded RAG Chatbot
+Removed sections: N/A (new constitution)
+Templates requiring updates:
+- ✅ .specify/templates/plan-template.md - to align with new principles
+- ✅ .specify/templates/spec-template.md - to align with new constraints
+- ✅ .specify/templates/tasks-template.md - to align with new task types
+Templates: Updated
 Follow-up TODOs: None
- -->
-
-# Spec-Driven Book Creation Constitution
+-->
+# AI/Spec-Driven Book with Embedded RAG Chatbot Constitution
 
 ## Core Principles
 
-### I. Clarity and Accessibility
-All content MUST be written in clear, accessible language appropriate for beginner to intermediate learners. Technical concepts SHOULD be explained using analogies, examples, and visual aids when beneficial. Content MUST avoid unnecessary jargon and explain terms upon first use.
+### Accuracy: Verified Technical Content
+All content must be technically accurate and verified through official documentation, tutorials, and authoritative sources. No unverified claims or speculative information allowed.
 
-### II. Progressive Learning Structure
-Content MUST follow a logical progression from basic to advanced concepts. Each chapter SHOULD build upon previous knowledge while clearly indicating prerequisites. Learning pathways MUST be designed to accommodate different learning speeds and styles.
+### Clarity: Professional, Readable Style (Flesch-Kincaid 10-12)
+All content must maintain professional, readable style with Flesch-Kincaid grade level between 10-12. Writing should be clear, concise, and technically precise.
 
-### III. Factual and Technical Accuracy
-All technical claims, code samples, and statements MUST be verified for accuracy before publication. Sources MUST be cited when referencing external information or research. Content SHOULD undergo peer review by subject matter experts when dealing with complex topics.
+### Spec-driven: Follow Spec-Kit Plus Structure Strictly
+All development must follow Spec-Kit Plus structure with strict adherence to specification-driven development methodology. All changes must be documented in specs before implementation.
 
-### IV. Executable and Reproducible Examples
-All code examples and technical instructions MUST be tested to ensure reproducibility. Examples SHOULD be kept minimal while demonstrating the core concept. Code snippets MUST include appropriate context and explanations for successful execution.
+### Reproducibility: Code and Chatbot Fully Functional
+All code examples must be executable and reproducible. The RAG chatbot must be fully functional with zero errors in deployment and operation.
 
-### V. Spec-Driven Development Discipline
-All content creation MUST begin with a clear specification document outlining learning objectives, target audience, and content structure. Specifications SHOULD be validated by stakeholders before proceeding to planning phase. Content plans MUST align with the original specification and document any deviations.
+### Interactivity: RAG Chatbot Answers from Selected Book Content Only
+The RAG chatbot must only provide answers based on the specific book content provided, not general knowledge. Accuracy and contextual relevance to book sections is paramount.
 
-### VI. AI Behavior Constraints
-AI-generated content MUST be grounded in verified sources and not contain hallucinations. All AI outputs MUST be reviewed for accuracy and appropriateness before acceptance. AI tools SHOULD only be used to assist human creativity, not replace it entirely.
+### Source Verification: ≥50% Official Documentation Sources
+At least 50% of all content must be verified through official documentation, tutorials, and authoritative sources. All sources must be properly cited and traceable.
 
-### VII. Docusaurus Documentation Standards
-All content MUST comply with Docusaurus documentation standards and best practices. Navigation structure SHOULD follow intuitive information architecture principles. Content MUST be optimized for both desktop and mobile viewing experiences.
+## Key Standards
 
-### VIII. Version Control and Change Management
-All content changes MUST be tracked using Git version control. Significant changes SHOULD be documented in changelog files. Multiple versions of content MAY be maintained when supporting different technology versions or user needs.
+### Content Quality Standards
+- All content must be technically precise with verified information
+- Chatbot must provide accurate, contextual answers that reference specific book sections
+- Writing must be clear, concise, and maintain professional standards
+- All code examples must be executable with working examples provided
 
-## Content Integrity Requirements
+### Deployment Standards
+- Final product must be Docusaurus-ready for documentation
+- Must deploy successfully to GitHub Pages
+- Chatbot must be fully functional with zero errors in production
+- All content must be in Markdown format with proper code snippets
 
-### Ethical and Authoritative Sourcing
-All content MUST be ethically sourced, with proper attribution to original authors. Third-party materials MUST comply with applicable licensing requirements. Content SHOULD prioritize authoritative, peer-reviewed sources when available.
+## Constraints
 
-### Consistency Across Specs, Plans, and Tasks
-Specifications, content plans, and implementation tasks MUST maintain consistency with core principles. Deviations from established patterns MUST be documented and justified. Cross-references between documents SHOULD maintain integrity and accuracy.
+### Content Constraints
+- Word count: Chapters must be 1,500–3,000 words each
+- Total word count: Overall book should be ~15,000–25,000 words
+- Format: All content in Markdown with executable code snippets
+- Content must be technically accurate and verifiable
 
-## Development Workflow
+### Technical Constraints
+- All examples must be executable and reproducible
+- Chatbot must only reference book content, not external sources
+- Docusaurus-ready structure required for deployment
+- GitHub Pages deployment must be error-free
 
-### Specification Phase Requirements
-All chapters and major sections MUST begin with a comprehensive specification document. Specifications SHOULD include learning objectives, target audience, estimated reading time, and prerequisite knowledge. Content specifications MUST be reviewed and approved before proceeding to the planning phase.
+## Success Criteria
 
-### Planning and Task Creation
-Content plans MUST break down specifications into discrete, trackable tasks. Task definitions SHOULD include acceptance criteria, complexity estimates, and dependencies. All tasks MUST reference the relevant specification items they implement.
+### Specification Compliance
+- Complete adherence to Spec-Kit Plus structure and methodology
+- All content must be verified and traceable to official sources
+- Chatbot must accurately answer questions from book content only
+- Fully deployable system with zero operational errors
 
-### Quality Assurance Gates
-Content MUST pass technical accuracy reviews by subject matter experts. All code examples MUST be tested in clean environments to verify reproducibility. Content SHOULD undergo editorial review for clarity, grammar, and accessibility before final approval.
+### Quality Assurance
+- All technical content verified through official documentation
+- Chatbot responses must be accurate and contextual to book sections
+- Deployment must be fully functional with no errors
+- Content must meet readability standards (Flesch-Kincaid 10-12)
 
 ## Governance
 
-This constitution establishes the governing principles for all content creation, specification, planning, and implementation activities. Any changes to this constitution MUST be documented with appropriate versioning and approval processes. All project participants MUST comply with these principles throughout the content creation lifecycle. Deviations from these principles MUST be explicitly documented, justified, and approved by the editorial board. Content development workflows MUST include checks for constitutional compliance at each major milestone (spec → plan → task → implementation → review).
+### Amendment Process
+This constitution may only be amended through the formal Spec-Kit Plus amendment process. All changes must be documented with clear rationale and impact assessment. Amendments require explicit approval and must maintain the core principles of accuracy, clarity, and spec-driven development.
 
-**Version**: 1.0.0 | **Ratified**: 2025-01-14 | **Last Amended**: 2025-01-14
+### Compliance Requirements
+All development work must comply with these constitutional principles. Any deviation must be explicitly documented and justified. Regular compliance reviews must be conducted to ensure adherence to accuracy, clarity, and spec-driven requirements.
+
+### Versioning Policy
+Version numbers follow semantic versioning. Major versions for principle changes, minor for additions, patches for clarifications. All changes must be tracked with ISO date format.
+
+**Version**: 1.0.0 | **Ratified**: 2025-12-25 | **Last Amended**: 2025-12-25
