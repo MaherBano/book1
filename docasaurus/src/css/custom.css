@@ -1,40 +1,272 @@
-/**
- * Copyright (c) Facebook, Inc. and its affiliates.
- *
- * This source code is licensed under the MIT license found in the
- * LICENSE file in the root directory of this source tree.
- */
+/* ================================
+   GLOBAL COLORS
+================================ */
 
-/* You can override the default Infima variables here. */
 :root {
-  --ifm-color-primary: #2e8555;
-  --ifm-color-primary-dark: #29784c;
-  --ifm-color-primary-darker: #277148;
-  --ifm-color-primary-darkest: #205d3b;
-  --ifm-color-primary-light: #33925d;
-  --ifm-color-primary-lighter: #359962;
-  --ifm-color-primary-lightest: #3cad6e;
-  --ifm-code-font-size: 95%;
+  --navy-main: #0A2540;
+  --navy-dark: #071C30;
+  --navy-light: #0F305A;       /* Light navy for front page background */
+  --custom-main: #004958;      /* Primary deep teal/navy */
+  --custom-dark: #009899;      /* Accent / hover */
+  --custom-light: #affdfb;     /* Light aqua / background panels */
 }
 
-/* For readability concerns, you should choose a lighter palette in dark mode. */
-[data-theme='dark'] {
-  --ifm-color-primary: #25c2a0;
-  --ifm-color-primary-dark: #21af90;
-  --ifm-color-primary-darker: #1fa588;
-  --ifm-color-primary-darkest: #1a8870;
-  --ifm-color-primary-light: #29d5b0;
-  --ifm-color-primary-lighter: #32d8b4;
-  --ifm-color-primary-lightest: #4fddbf;
+/* ================================
+   PAGE BACKGROUND & TEXT
+================================ */
+
+body {
+  background-color: #ffffff;  /* Changed to white */
+  color: var(--navy-main);
 }
 
-.docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.1);
-  display: block;
-  margin: 0 calc(-1 * var(--ifm-pre-padding));
-  padding: 0 var(--ifm-pre-padding);
+/* ================================
+   HEADINGS
+================================ */
+
+h1 {
+  color: var(--navy-main);
 }
 
-[data-theme='dark'] .docusaurus-highlight-code-line {
-  background-color: rgba(0, 0, 0, 0.3);
+h2 {
+  color: var(--custom-dark);
+}
+
+h3, h4, h5 {
+  color: var(--navy-main);
+}
+
+/* ================================
+   LINKS
+================================ */
+
+a {
+  color: var(--custom-dark);
+  text-decoration: none;
+}
+
+a:hover {
+  color: var(--custom-main);
+  text-decoration: underline;
+}
+
+/* ================================
+   SIDEBAR (LEFT MENU)
+================================ */
+
+.theme-doc-sidebar-container {
+  background-color: var(--navy-dark);
+}
+
+.theme-doc-sidebar-item-link {
+  color: var(--custom-light);
+}
+
+.theme-doc-sidebar-item-link--active {
+  color: var(--custom-main);
+  font-weight: 600;
+}
+
+/* ================================
+   NAVBAR (TOP)
+================================ */
+
+.navbar {
+  background-color: var(--navy-dark);
+}
+
+.navbar__title,
+.navbar__link {
+  color: var(--custom-main);
+}
+
+.navbar__link:hover {
+  color: var(--custom-dark);
+}
+
+/* ================================
+   CODE BLOCKS
+================================ */
+
+pre {
+  background-color: #081A2C;
+  border-left: 4px solid var(--custom-main);
+}
+
+code {
+  color: #e0f7f9;
+}
+
+/* ================================
+   NOTE / TIP / WARNING BOXES
+================================ */
+
+.alert--info {
+  background-color: var(--custom-light);
+  border-left: 4px solid var(--custom-main);
+  color: var(--navy-main);
+}
+
+.alert--success {
+  background-color: #d0f9fb;
+  border-left: 4px solid var(--custom-dark);
+}
+
+.alert--warning {
+  background-color: #b0f5fa;
+  border-left: 4px solid #009899;
+}
+
+/* ================================
+   TABLES
+================================ */
+
+table {
+  border-collapse: collapse;
+}
+
+th {
+  background-color: var(--navy-main);
+  color: var(--custom-light);
+}
+
+td, th {
+  border: 1px solid #ddd;
+  padding: 8px;
+}
+
+/* ================================
+   IMAGES
+================================ */
+
+img {
+  border-radius: 6px;
+}
+
+/* ================================
+   FOOTER
+================================ */
+
+.footer {
+  background-color: var(--navy-dark);
+  color: var(--custom-light);
+}
+
+.footer a {
+  color: var(--custom-main);
+}
+
+.footer a:hover {
+  color: var(--custom-dark);
+}
+
+/* ================================
+   FRONT PAGE / LANDING PAGE
+================================ */
+
+/* HERO SECTION */
+.heroSection {
+  padding: 6rem 2rem;
+  text-align: center;
+  background: var(--navy-light);
+  color: var(--custom-light);
+  border-radius: 12px;
+  margin: 2rem;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+}
+
+.heroTitle {
+  font-size: 3rem;
+  font-weight: 700;
+  margin-bottom: 1rem;
+  color: var(--custom-light);
+}
+
+.heroSubtitle {
+  font-size: 1.2rem;
+  max-width: 700px;
+  margin: auto;
+  opacity: 0.9;
+  color: var(--custom-light);
+}
+
+.heroButtons {
+  display: flex;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+/* BUTTONS */
+.button--primary {
+  background-color: var(--custom-main);
+  color: var(--navy-main);
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.7em 1.5em;
+  transition: all 0.2s ease;
+}
+.button--primary:hover {
+  background-color: var(--custom-dark);
+  color: #fff;
+}
+
+.button--outline {
+  border: 2px solid var(--custom-main);
+  color: var(--custom-main);
+  font-weight: 600;
+  border-radius: 8px;
+  padding: 0.7em 1.5em;
+  transition: all 0.2s ease;
+}
+.button--outline:hover {
+  background-color: var(--custom-main);
+  color: var(--navy-main);
+}
+
+/* FEATURES / CHAPTER CARDS */
+.featuresSection {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  padding: 4rem 2rem;
+  max-width: 1100px;
+  margin: auto;
+}
+
+.feature {
+  background: var(--navy-dark);
+  padding: 2rem;
+  border-radius: 12px;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  text-align: center;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+  color: var(--custom-light);
+}
+.feature:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 12px 30px rgba(0,0,0,0.1);
+}
+
+/* CTA SECTION */
+.ctaSection {
+  text-align: center;
+  padding: 4rem 2rem;
+  background: var(--navy-light);
+  border-radius: 12px;
+  margin: 2rem;
+  box-shadow: 0 8px 20px rgba(0,0,0,0.05);
+  color: var(--custom-light);
+}
+
+.ctaSection h2 {
+  font-size: 2rem;
+  margin-bottom: 1rem;
+  color: var(--custom-light);
+}
+
+.ctaSection p {
+  font-size: 1.1rem;
+  margin-bottom: 2rem;
+  color: var(--custom-light);
 }
