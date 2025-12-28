@@ -1,0 +1,86 @@
+openapi: 3.0.0
+info:
+  title: RAG Agent API
+  description: API for the RAG-Enabled AI Agent that retrieves and responds to book content queries
+  version: 1.0.0
+paths:
+  /query:
+    post:
+      summary: Submit a query to the RAG agent
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              properties:
+                query:
+                  type: string
+                  description: The user's question about book content
+                  example: "What is the main concept of machine learning?"
+                context_constraint:
+                  type: string
+                  description: Optional constraint to limit response to specific sections
+                  example: "Chapter 3"
+              required:
+                - query
+      responses:
+        '200':
+          description: Successful response from the agent
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/AgentResponse'
+        '400':
+          description: Invalid query format
+        '500':
+          description: Internal server error
+components:
+  schemas:
+    AgentResponse:
+      type: object
+      properties:
+        content:
+          type: string
+          description: The agent's response content
+        citations:
+          type: array
+          items:
+            $ref: '#/components/schemas/Citation'
+        confidence_score:
+          type: number
+          format: float
+          description: Agent's confidence in the response
+          minimum: 0
+          maximum: 1
+      required:
+        - content
+        - citations
+        - confidence_score
+    Citation:
+      type: object
+      properties:
+        url:
+          type: string
+          description: URL to the original book section
+        chapter:
+          type: string
+          description: Book chapter containing the cited content
+        section:
+          type: string
+          description: Specific section within the chapter
+        content_preview:
+          type: string
+          description: Preview of the cited content
+        relevance_score:
+          type: number
+          format: float
+          description: Relevance score of the citation to the query
+          minimum: 0
+          maximum: 1
+      required:
+        - url
+        - chapter
+        - section
+        - content_preview
+        - relevance_score

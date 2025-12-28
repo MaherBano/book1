@@ -48,7 +48,14 @@ const sidebars: SidebarsConfig = {
         {type: 'doc', id: 'chapter-3/lesson-3'},
         {type: 'doc', id: 'chapter-3/lesson-4'}
       ],
-    }
+    },
+    {
+      type: 'category',
+      label: 'AI Chatbot',
+      items: [
+        {type: 'doc', id: 'chatbot'},
+      ],
+    },
   ],
 };
 

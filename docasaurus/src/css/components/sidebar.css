@@ -1,0 +1,107 @@
+/* Import theme variables */
+@import url('../theme-variables.css');
+
+/* Sidebar styling */
+.menu {
+  background-color: var(--theme-color-background-primary);
+  border-right: 1px solid var(--theme-color-border);
+  padding: 1rem 0;
+}
+
+.menu__list {
+  margin: 0;
+  padding: 0;
+}
+
+.menu__list-item {
+  list-style: none;
+  margin: 0.25rem 0;
+}
+
+.menu__list-item-collapsible {
+  list-style: none;
+  margin: 0.25rem 0;
+}
+
+.menu__link {
+  color: var(--theme-color-text-muted);
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+  border-radius: var(--theme-radius-sm);
+  display: block;
+  transition: all 0.2s ease;
+}
+
+.menu__link:hover {
+  color: var(--theme-color-accent-primary);
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+.menu__link--active,
+.menu__link:hover.menu__link--active {
+  color: var(--theme-color-accent-primary);
+  background-color: var(--theme-color-background-surface);
+  font-weight: 600;
+}
+
+.menu__list-item-collapsible > .menu__link:hover {
+  color: var(--theme-color-accent-primary);
+}
+
+.menu__list-item--collapsed .menu__list {
+  display: none;
+}
+
+.menu__caret {
+  background-color: var(--theme-color-text-muted);
+}
+
+.menu__caret:hover {
+  background-color: var(--theme-color-accent-primary);
+}
+
+/* Category styling */
+.menu__list-item-collapsible .menu__link {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.menu__list-item-collapsible .menu__link::after {
+  content: '▶';
+  transform: rotate(90deg);
+  transition: transform 0.2s ease;
+}
+
+.menu__list-item-collapsible.menu__list-item--collapsed .menu__link::after {
+  transform: rotate(0deg);
+}
+
+/* Auto-generated table of contents sidebar */
+.table-of-contents {
+  border-left: 2px solid var(--theme-color-border);
+}
+
+.table-of-contents__link {
+  color: var(--theme-color-text-muted);
+  padding: 0.25rem 0.5rem;
+  display: block;
+  text-decoration: none;
+  margin: 0.125rem 0;
+  border-radius: var(--theme-radius-sm);
+  transition: all 0.2s ease;
+}
+
+.table-of-contents__link:hover {
+  color: var(--theme-color-accent-primary);
+  background-color: rgba(255, 215, 0, 0.1);
+}
+
+.table-of-contents__link--active {
+  color: var(--theme-color-accent-primary);
+  font-weight: 600;
+}
+
+.table-of-contents__link--active:hover {
+  background-color: rgba(255, 215, 0, 0.1);
+}

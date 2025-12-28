@@ -67,10 +67,19 @@ const config: Config = {
           onUntruncatedBlogPosts: 'warn',
         },
         theme: {
-          customCss: './src/css/custom.css',
+          customCss: ['./src/css/theme-variables.css', './src/css/custom.css'],
         },
       } satisfies Preset.Options,
     ],
+  ],
+
+  themes: ['@docusaurus/theme-live-codeblock'], // Add any additional themes here
+
+  scripts: [
+    // Scripts will be injected into the page HTML
+  ],
+  stylesheets: [
+    // Stylesheets will be injected into the page HTML
   ],
 
   themeConfig: {
@@ -80,10 +89,10 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: 'Docusaurus Book',
+      title: 'Technical Book',
       logo: {
-        alt: 'Docusaurus Book Logo',
-        src: 'img/logo.svg',
+        alt: 'Technical Book Logo',
+        src: 'img/book-logo.svg',
       },
       items: [
         {

@@ -2,6 +2,10 @@
 
 This website is built using [Docusaurus](https://docusaurus.io/), a modern static website generator.
 
+## Features
+
+This documentation site includes an AI-powered chatbot that provides contextual answers based on the documentation content using Retrieval-Augmented Generation (RAG).
+
 ## Installation
 
 ```bash
@@ -15,6 +19,10 @@ yarn start
 ```
 
 This command starts a local development server and opens up a browser window. Most changes are reflected live without having to restart the server.
+
+## Backend API for Chatbot
+
+The AI chatbot requires a backend API server to function. See `../backend/API.md` for setup instructions.
 
 ## Build
 

@@ -179,24 +179,42 @@ class RetrievalService:
                     qdrant_filters = models.Filter(must=conditions)
 
             # Perform the search
-            search_results = self.client.query_points(
+            search_results = self.client.search(
                 collection_name=self.collection_name,
-                query=query_vector,
+                query_vector=query_vector,
                 limit=top_k,
                 query_filter=qdrant_filters,
                 score_threshold=threshold
             )
 
             # Process results
-            points = search_results.points if hasattr(search_results, 'points') else search_results
+            # Handle different Qdrant client response formats
+            if hasattr(search_results, '__iter__') and not hasattr(search_results, 'points'):
+                # Direct list of points format
+                points = search_results
+            elif hasattr(search_results, 'points'):
+                # Structured response with points attribute
+                points = search_results.points
+            else:
+                # Fallback to direct results
+                points = search_results
+
             results = []
 
             for i, point in enumerate(points):
-                payload = getattr(point, 'payload', {})
-                score = getattr(point, 'score', 0)
+                # Handle different point object formats
+                if hasattr(point, 'payload'):
+                    payload = getattr(point, 'payload', {})
+                    score = getattr(point, 'score', 0)
+                    point_id = getattr(point, 'id', f"result_{i}")
+                else:
+                    # For dictionary-like results
+                    payload = point.get('payload', {}) if isinstance(point, dict) else {}
+                    score = point.get('score', 0) if isinstance(point, dict) else 0
+                    point_id = point.get('id', f"result_{i}") if isinstance(point, dict) else f"result_{i}"
 
                 result = {
-                    "id": getattr(point, 'id', f"result_{i}"),
+                    "id": point_id,
                     "content": payload.get("content", ""),
                     "similarity_score": score,
                     "metadata": {k: v for k, v in payload.items() if k != "content"}
@@ -312,18 +330,25 @@ class RetrievalService:
             )
 
             # Get sample points
-            sample_points = self.client.scroll(
+            scroll_result = self.client.scroll(
                 collection_name=self.collection_name,
                 limit=5  # Get first 5 points as sample
             )
+            # Handle the response based on Qdrant client version
+            if hasattr(scroll_result, 'points'):
+                # Newer version with structured response
+                sample_points = scroll_result.points
+            else:
+                # Older version where result is directly the points list
+                sample_points = scroll_result
 
             sample_data = []
-            if sample_points[0]:  # Check if we have points
-                for point in sample_points[0][:3]:  # Take first 3 as sample
+            if sample_points and len(sample_points) > 0:  # Check if we have points
+                for point in sample_points[:3]:  # Take first 3 as sample
                     sample_data.append({
                         "id": getattr(point, 'id', 'unknown'),
                         "payload_keys": list(getattr(point, 'payload', {}).keys()) if hasattr(point, 'payload') else [],
-                        "vector_size": len(getattr(point, 'vector', [])) if hasattr(point, 'vector') else 0
+                        "vector_size": len(getattr(point, 'vector', [])) if hasattr(point, 'vector') and getattr(point, 'vector', None) else 0
                     })
 
             inspection_result = {
