@@ -1,6 +1,6 @@
 # Feature Specification: Retrieval Pipeline & Validation
 
-**Feature Branch**: `001-retrieval-validation`
+**Feature Branch**: `003-retrieval-validation`
 **Created**: 2025-12-25
 **Status**: Draft
 **Input**: User description: "Retrieval Pipeline & Validation

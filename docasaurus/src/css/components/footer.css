@@ -1,0 +1,105 @@
+/* Import theme variables */
+@import url('../theme-variables.css');
+
+/* Footer styling */
+.footer {
+  background-color: var(--theme-color-background-primary);
+  border-top: 1px solid var(--theme-color-border);
+  padding: 3rem 0 2rem;
+  color: var(--theme-color-text-muted);
+}
+
+.footer__title {
+  color: var(--theme-color-accent-primary);
+  font-family: var(--theme-font-heading);
+  margin-bottom: 1.5rem;
+  font-size: 1.2rem;
+}
+
+.footer__items {
+  margin-bottom: 1rem;
+}
+
+.footer__item {
+  margin-bottom: 0.75rem;
+}
+
+.footer__link {
+  color: var(--theme-color-text-muted);
+  text-decoration: none;
+  transition: color 0.2s ease;
+}
+
+.footer__link:hover {
+  color: var(--theme-color-accent-primary);
+}
+
+.footer__copyright {
+  border-top: 1px solid var(--theme-color-border);
+  padding-top: 1.5rem;
+  margin-top: 2rem;
+  color: var(--theme-color-text-muted);
+  font-size: 0.9rem;
+}
+
+/* Footer links list */
+.footer__links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  margin-bottom: 2rem;
+}
+
+.footer__links--first {
+  flex: 1;
+  margin-right: 2rem;
+}
+
+.footer__links--second {
+  flex: 1;
+  margin-right: 2rem;
+}
+
+.footer__links--third {
+  flex: 1;
+}
+
+/* Responsive footer */
+@media (max-width: 768px) {
+  .footer__links {
+    flex-direction: column;
+  }
+
+  .footer__links--first,
+  .footer__links--second,
+  .footer__links--third {
+    margin-right: 0;
+    margin-bottom: 2rem;
+  }
+}
+
+/* Footer social icons */
+.footer__social {
+  display: flex;
+  gap: 1rem;
+  margin-top: 1rem;
+}
+
+.footer__social-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  background-color: var(--theme-color-background-surface);
+  color: var(--theme-color-text-primary);
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.footer__social-item:hover {
+  background-color: var(--theme-color-accent-primary);
+  color: var(--theme-color-background-primary);
+  transform: translateY(-2px);
+}
